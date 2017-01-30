@@ -1,0 +1,17 @@
+header.nav
+  label.nav--search
+    input#search(type='text' name='search' placeholder='Search for a package...' autocomplete='off')
+
+    a#nav--search-close.nav--search-close
+      span.hidden-label Close Search
+      span.icon  &times;
+
+  nav.nav--main
+    a(href='/') Home
+    a(href='/#features') Features
+    a(href='/docs/#installation') Install
+    a(href='/docs') Docs
+    a(href='//github.com/zulu-zsh/zulu') Github
+
+div#results.search--results
+  ul

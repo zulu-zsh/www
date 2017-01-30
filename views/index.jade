@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  include /_includes/homepage/intro
+
+  include /_includes/header
+
+  section.features#features
+    h2 Features
+
+    article.features--item
+      .features--item-content
+        :marked
+          Choose from a wide range of packages, including plugins, autoloadable ZSH modules and standalone applications.
+
+      .features--item-demo
+        <script type="text/javascript" src="https://asciinema.org/a/100273.js" id="asciicast-100273" async></script>
+
+    article.features--item
+      .features--item-content
+        :marked
+          Manage your $path, $fpath and $cdpath variables and have them take effect immediately, without editing any code.
+
+      .features--item-demo
+        <script type="text/javascript" src="https://asciinema.org/a/100272.js" id="asciicast-100272" async></script>
+
+    article.features--item
+      .features--item-content
+        :marked
+          Decorate your terminal with a range of beautiful prompt themes.
+
+      .features--item-demo
+        <script type="text/javascript" src="https://asciinema.org/a/100271.js" id="asciicast-100271" async></script>

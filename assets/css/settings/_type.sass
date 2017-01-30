@@ -1,0 +1,163 @@
+html
+  font: 400 100%/#{$baseline} $font--primary
+
+body
+  line-height: $baseline
+
+  @if $type-scaling == true
+    @media (min-width: 42em)
+      font-size: 1.125em
+
+    @media (min-width: 60em)
+      font-size: 1.3125em
+
+h1, h2, h3, h4, h5, h6
+  font:
+    family: $font--secondary
+    weight: 700
+  letter-spacing: -.0375em
+
+h1
+  font-size: 3em
+  line-height: #{(1 / 1.5) * $baseline}
+  margin-bottom: #{(.5 / 1.5) * $baseline}
+
+h2
+  font-size: 2.25em
+  line-height: #{(1.35 / 1.5) * $baseline}
+  margin-bottom: #{(.6666666666666667 / 1.5) * $baseline}
+
+h3
+  font-size: 1.5em
+  line-height: #{(1 / 1.5) * $baseline}
+  margin-bottom: #{(1 / 1.5) * $baseline}
+
+h4
+  font-size: 1.3125em
+  line-height: #{(1.142857142857143 / 1.5) * $baseline}
+  margin-bottom: #{(1.142857142857143 / 1.5) * $baseline}
+
+h5
+  font-size: 1.125em
+  line-height: #{(1.35 / 1.5) * $baseline}
+  margin-bottom: #{(1.333333333333333 / 1.5) * $baseline}
+
+h6
+  font-size: 1em
+  line-height: $baseline
+  margin-bottom: $baseline
+
+p
+  &.lead
+    font-size: 1.5em
+
+p, ul, ol, dl, blockquote
+  margin-bottom: $baseline
+
+ul
+  list-style: disc inside
+
+ol
+  list-style: decimal inside
+
+ul, ol
+  ul
+    list-style: circle inside
+    margin:
+      bottom: 0
+      left: $baseline
+
+  ol
+    list-style: lower-roman inside
+    margin:
+      bottom: 0
+      left: $baseline
+
+a
+  color: $blue
+  text-decoration: none
+
+  &:hover
+    text-decoration: underline
+
+em
+  font-style: italic
+
+strong
+  font-weight: 700
+
+small
+  font-size: .75em
+  line-height: .5em
+
+hr
+  height: 0
+  margin: calc(#{$baseline * 2} - 1px) auto #{$baseline * 2}
+  border: solid $shade
+    width: 0 0 1px
+
+blockquote, figcaption
+  display: block
+
+  cite
+    display: block
+    font:
+      family: $font--secondary
+      weight: 600
+      style: normal
+
+  p:last-of-type
+    margin: 0
+
+blockquote
+  &:not(.pull)
+    margin: 0 0 $baseline
+    font:
+      weight: 300
+      style: italic
+
+  &.pull
+    font-size: 2.25em
+    margin: 0 0 .6666666666666667em
+    line-height: 1.35em
+    font:
+      weight: 200
+      family: $font--secondary
+
+    cite
+      font-size: .4444444444444444em
+
+figure
+  max-width: 100%
+
+  img
+    max-width: 100%
+
+  figcaption
+    font-style: italic
+    font-size: .75em
+
+  &.full-width
+    width: 100%
+
+    img
+      margin: 0 #{$baseline * -2} 0
+      max-width: calc(100% + #{$baseline * 4})
+      width: calc(100% + #{$baseline * 4})     // Need both because of a webkit bug!
+
+
+code
+  font-family: $font--monospace
+  background: $shade
+
+  // Line height should be inherited, but for inline code blocks where it isn't, this maintains the baseline
+  line-height: 0
+
+pre
+  padding: $baseline
+  margin: 0 0 $baseline
+  background: $shade
+
+  code
+    background: transparent
+    font-size: .75em

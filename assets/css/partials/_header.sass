@@ -1,0 +1,130 @@
+.nav
+  align-items: center
+  background: $white
+  border-bottom: 1px solid $shade
+  display: flex
+  justify-content: space-between
+  overflow: hidden
+  position: relative
+  transition: background .25s 0, color .25s 0, border-color .25s 0
+  width: 100%
+  z-index: 9
+
+  .scrolled &
+    left: 0
+    position: fixed
+    top: 0
+
+  &--search
+    flex: 0 1 100%
+    position: relative
+
+    input
+      background: transparent
+      border: 0
+      font-size: 1.125em
+      padding: .75em 0 .75em 5.33333333em
+      transition: color .25s 0, padding .25s 0, font-size .25s 0
+      width: 100%
+
+    .search-focused &
+      flex: 0 0 100%
+
+      input
+        padding: .75em 5.33333333em
+
+    &-close
+      cursor: pointer
+      opacity: 0
+      pointer-events: none
+      position: absolute
+      right: 5.33333333em
+      top: 50%
+      transform: translateY(-50%)
+      transition: opacity .25s 0
+
+      &, &:hover
+        text-decoration: none
+
+      .icon
+        font-size: 2.25em
+        vertical-align: middle
+
+      .hidden-label
+        display: inline-block
+        height: 0
+        overflow: hidden
+        visibility: hidden
+        width: 0
+
+      .search-focused &
+        opacity: 1
+        pointer-events: all
+
+      .search-term-entered &
+        transition: opacity .25s 0
+
+
+  &--main
+    padding: .75em 6em .75em 0
+    transition: opacity .25s
+
+    a
+      color: $peach
+      font-size: .75em
+      margin-right: 1.5em
+
+  .search-focused &
+    .nav--search
+      input
+        outline: 0
+
+    .nav--main
+      opacity: 0
+
+  .search-term-entered &
+    background: $dark
+    border-bottom-color: rgba($white, .15)
+    transition: background .25s .25s, color .25s .25s, border-color .25s .25s
+
+    .nav--search
+      input
+        color: $white
+        font-size: 1.3125em
+        padding: 1.5em 4.5714285714em
+        transition: color .25s .25s, padding .25s .25s, font-size .25s .25s
+
+
+.search
+  &--results
+    background: $dark
+    color: $white
+    height: 100%
+    left: 0
+    opacity: 0
+    overflow-y: auto
+    padding: 6em 0
+    pointer-events: none
+    position: fixed
+    top: 0
+    transition: opacity .25s 0
+    width: 100%
+    z-index: 8
+
+    ul
+      list-style: none
+
+      li
+        padding: .75em 6em
+        margin: 0
+
+        p
+          margin: 0
+
+        &:hover
+          background: rgba($white, .1)
+
+    .search-term-entered &
+      opacity: 1
+      pointer-events: all
+      transition: opacity .25s .25s
