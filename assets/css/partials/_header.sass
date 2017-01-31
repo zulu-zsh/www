@@ -30,9 +30,12 @@
       background: transparent
       border: 0
       font-size: 1.125em
-      padding: .75em #{(5.33333333 / 2) * 1em}
+      padding: .75em #{(5.33333333 / 4) * 1em}
       transition: color .25s 0, padding .25s 0, font-size .25s 0
       width: 100%
+
+      @media (min-width: 32em)
+        padding: .75em #{(5.33333333 / 2) * 1em}
 
       @media (min-width: 64em)
         padding: .75em 0 .75em 5.33333333em
@@ -49,10 +52,16 @@
       opacity: 0
       pointer-events: none
       position: absolute
-      right: 5.33333333em
+      right: #{(5.33333333 / 4) * 1em}
       top: 50%
       transform: translateY(-50%)
       transition: opacity .25s 0
+
+      @media (min-width: 32em)
+        right: #{(5.33333333 / 2) * 1em}
+
+      @media (min-width: 64em)
+        right: 5.33333333em
 
       &, &:hover
         text-decoration: none
@@ -84,6 +93,9 @@
       padding: .75em 3em
       flex: 0 0 100%
       order: 0
+
+    @media (max-width: 32em)
+      padding: .75em 1.5em
 
     a
       color: $peach

@@ -1,7 +1,10 @@
 .docs
   display: flex
   flex-wrap: wrap
-  padding: 3em
+  padding: 3em 1.5em
+
+  @media (min-width: 32em)
+    padding: 3em
 
   @media (min-width: 64em)
     padding: 6em
@@ -14,7 +17,7 @@
 
     @media (min-width: 64em)
       flex: 1 0 15em
-      left: 3em
+      left: 6em
       position: fixed
       top: 6em
 

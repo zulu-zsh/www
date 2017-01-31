@@ -3,8 +3,11 @@
   background: -webkit-linear-gradient(to top left, #B24592 , #F15F79); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top left, #B24592 , #F15F79); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: $white
-  padding: 6em 3em
+  padding: 6em 1.5em
   transition: padding .25s
+
+  @media (min-width: 32em)
+    padding: 6em 3em
 
   @media (min-width: 64em)
     padding: 25vh 6em
@@ -18,7 +21,10 @@
       width: 100%
 
 .features
-  padding: 3em
+  padding: 3em 1.5em
+  
+  @media (min-width: 32em)
+    padding: 3em
 
   @media (min-width: 64em)
     padding: 6em
