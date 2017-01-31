@@ -120,9 +120,17 @@
       input
         color: $white
         font-size: 1.3125em
-        padding: 1.5em 4.5714285714em
+        padding: 1.5em #{(4.5714285714 / 4) * 1em}
         transition: color .25s .25s, padding .25s .25s, font-size .25s .25s
 
+        @media (min-width: 32em)
+          padding: 1.5em #{(4.5714285714 / 2) * 1em}
+
+          @media (min-width: 32em)
+            padding: 1.5em 4.5714285714em
+
+    .nav--main
+      display: none
 
 .search
   &--results
@@ -144,8 +152,14 @@
       list-style: none
 
       li
-        padding: .75em 6em
         margin: 0
+        padding: .75em 1.5em
+
+        @media (min-width: 32em)
+          padding: .75em 3em
+
+        @media (min-width: 64em)
+          padding: .75em 6em
 
         p
           margin: 0
