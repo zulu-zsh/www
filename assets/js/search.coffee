@@ -1,4 +1,5 @@
-Promise = require 'promise'
+Promise   = require 'promise'
+fetch     = require 'whatwg-fetch'
 zenscroll = require 'zenscroll'
 zenscroll.setup null, -1
 
