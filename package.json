@@ -19,7 +19,8 @@
     "roots-browserify": "^0.5.0",
     "roots-image-pipeline": "^0.3.0",
     "statica": "0.0.1",
-    "node-fetch": "^1.6.3",
+    "isomorphic-fetch": "^2.2.1",
+    "es6-promise": "^4.0.5",
     "zenscroll": "^3.3.0"
   }
 }

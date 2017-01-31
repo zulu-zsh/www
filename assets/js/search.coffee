@@ -1,7 +1,9 @@
 Promise   = require 'promise'
-fetch     = require 'node-fetch'
 zenscroll = require 'zenscroll'
 zenscroll.setup null, -1
+
+require('es6-promise').polyfill()
+require 'isomorphic-fetch'
 
 ###*
  * Methods for handling search input on the site
