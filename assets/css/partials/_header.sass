@@ -10,6 +10,9 @@
   width: 100%
   z-index: 9
 
+  @media (max-width: 64em)
+    flex-wrap: wrap
+
   .scrolled &
     left: 0
     position: fixed
@@ -19,19 +22,27 @@
     flex: 0 1 100%
     position: relative
 
+    @media (max-width: 64em)
+      flex: 0 0 100%
+      order: 1
+
     input
       background: transparent
       border: 0
       font-size: 1.125em
-      padding: .75em 0 .75em 5.33333333em
+      padding: .75em #{(5.33333333 / 2) * 1em}
       transition: color .25s 0, padding .25s 0, font-size .25s 0
       width: 100%
+
+      @media (min-width: 64em)
+        padding: .75em 0 .75em 5.33333333em
 
     .search-focused &
       flex: 0 0 100%
 
-      input
-        padding: .75em 5.33333333em
+      @media (min-width: 64em)
+        input
+          padding: .75em 5.33333333em
 
     &-close
       cursor: pointer
@@ -69,6 +80,11 @@
     padding: .75em 6em .75em 0
     transition: opacity .25s
 
+    @media (max-width: 64em)
+      padding: .75em 3em
+      flex: 0 0 100%
+      order: 0
+
     a
       color: $peach
       font-size: .75em
@@ -79,8 +95,9 @@
       input
         outline: 0
 
-    .nav--main
-      opacity: 0
+    @media (min-width: 64em)
+      .nav--main
+        opacity: 0
 
   .search-term-entered &
     background: $dark

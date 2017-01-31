@@ -3,10 +3,10 @@
   background: -webkit-linear-gradient(to top left, #B24592 , #F15F79); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top left, #B24592 , #F15F79); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: $white
-  padding: 10vh 6em
+  padding: 6em 3em
   transition: padding .25s
 
-  &_before-search
+  @media (min-width: 64em)
     padding: 25vh 6em
 
   &--search
@@ -18,25 +18,33 @@
       width: 100%
 
 .features
-  padding: 6em
+  padding: 3em
+
+  @media (min-width: 64em)
+    padding: 6em
 
   &--item
     align-items: center
     display: flex
+    flex-wrap: wrap
     padding: 3em 0
 
-    &-content
-      padding: 3em 3em 3em 0
-
-    &:nth-child(2n+1)
-      flex-direction: row-reverse
-
-      .features--item-content
-        padding: 3em 0 3em 3em
-        text-align: right
-
     > *
-      flex: 0 0 50%
+      flex: 0 0 100%
+
+    @media (min-width: 64em)
+      &-content
+        padding: 3em 3em 3em 0
+
+      &:nth-child(2n+1)
+        flex-direction: row-reverse
+
+        .features--item-content
+          padding: 3em 0 3em 3em
+          text-align: right
+
+      > *
+        flex: 0 0 50%
 
     border-bottom: 1px solid $shade
 
