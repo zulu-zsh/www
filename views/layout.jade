@@ -8,7 +8,9 @@ html
     meta(name='author', content= "author of the site")
     //- uncomment if your site is responsive!
     //- meta(name="viewport" content="width=device-width, initial-scale=1")
-    title= _path
+
+    block title
+      title= _path
 
     link(rel='stylesheet' href='//brick.a.ssl.fastly.net/Fira+Mono:400,400i,700')
     != css('/')
