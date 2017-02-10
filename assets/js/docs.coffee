@@ -51,7 +51,7 @@ module.exports = class Docs
         resolve JSON.parse(json)
         return
 
-      fetch 'http://localhost:1111/docs.json'
+      fetch 'https://zulu.sh/docs.json'
         .then (response) ->
           response.json()
 
