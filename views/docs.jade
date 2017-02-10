@@ -1,7 +1,7 @@
 extends /layout
 
 block title
-  title Documentation | Zulu - The ZSH Environment Manager
+  title= (post ? post.title + ' - ' : '') + 'Documentation | Zulu - The ZSH Environment Manager'
 
 block content
   include /_includes/header
