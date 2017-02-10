@@ -1,0 +1,31 @@
+---
+title: path
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `path` command gives you complete control over your `$path` array.
+
+    ## Usage
+
+    ```sh
+    zulu path <context> <dir>
+    ```
+
+    ### `zulu path`
+
+    Prints the list of path directories currently defined in`~/.config/zulu/path`.
+
+    ### `zulu path add <directory>`
+
+    Add a directory to `$path` in the current environment, and register it to be included at the next shell start.
+
+    ### `zulu path rm <directory>`
+
+    Remove a directory from `$path`.
+
+    ### `zulu path reset`
+
+    Clears the current `$path` array, and loads the list of directories from `~/.config/zulu/path`.

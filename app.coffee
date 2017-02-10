@@ -38,9 +38,9 @@ module.exports =
   browser:
     open: false
 
-  # before: (roots) ->
-  #   helpers = new RootsUtil.Helpers
-  #   helpers.project.remove_folders(roots.config.output)
+  before: (roots) ->
+    helpers = new RootsUtil.Helpers
+    helpers.project.remove_folders(roots.config.output)
 
   extensions: [
     image_pipeline(
@@ -50,6 +50,9 @@ module.exports =
       output_webp: false
     )
     css_pipeline(files: 'assets/css/main.sass', postcss: true)
+    dynamic_content(
+      write: 'docs.json'
+    )
     statica()
     browserify(
       files: 'assets/js/main.coffee'
@@ -83,11 +86,7 @@ module.exports =
 
       moment date, 'YYYY-MM-DD hh:mm:ss'
 
-    sort: (posts) ->
-      posts.sort (a, b) ->
-        0 if moment(a).isSame b
-        -1 if moment(a).isBefore b
-        1 if moment(a).isAfter b
+    sort: (posts) -> posts.sort (a, b) -> a.seq - b.seq
 
   jade:
     pretty: true

@@ -1,7 +1,12 @@
 .docs
   display: flex
-  flex-wrap: wrap
   padding: 3em 1.5em
+
+  .scrolled &
+    padding-top: 9em
+
+  @media (max-width: 64em)
+    flex-wrap: wrap
 
   @media (min-width: 32em)
     padding: 3em
@@ -17,20 +22,30 @@
 
     @media (min-width: 64em)
       flex: 1 0 15em
-      left: 6em
-      position: fixed
-      top: 6em
 
     &-nav
       font-size: .75em
+
+      h4
+        margin: 0
+
+      ul
+        list-style: none
+
+      a.active
+        position: relative
+
+        &::before
+          color: $peach
+          content: '•'
+          font-size: 1.5em
+          position: absolute
+          right: 100%
 
   &--content
     display: block
     flex: 1 1 100%
     width: 100%
-
-    @media (min-width: 64em)
-      padding-left: 18em
 
     article
       font-size: .75em

@@ -1,0 +1,49 @@
+---
+title: func
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `func` command is used to add and remove user functions.
+
+    ## Requirements
+
+    To use the `func` command to add, remove or edit a function, the `$EDITOR` environment variable must be set.
+
+    ## Usage
+
+    ```sh
+    zulu func <context>
+    ```
+
+    ### `zulu func`
+
+    List all of the functions currently defined in `~/.config/zulu/functions`.
+
+    ### `zulu func add <name>`
+
+    Creates a new boilerplate function definition at `~/.config/zulu/functions/<name>`, and opens it in the current `$EDITOR`, loading it into the current environment when the file is saved.
+
+    The boilerplate it creates looks like this:
+
+    ```sh
+    #!/usr/bin/env zsh
+
+    (( $+functions[myawesomefunction] )) || function myawesomefunction() {
+
+    }
+    ```
+
+    ### `zulu func edit <name>`
+
+    Opens the specified function in `$EDITOR`, and then reloads it into the environment when the file is saved.
+
+    ### `zulu func rm <name>`
+
+    Removes the definition for the specified function, and removes it from the current environment.
+
+    ### `zulu func load`
+
+    Sources all functions defined in `~/.config/zulu/functions`, and loads them into the environment.

@@ -1,0 +1,39 @@
+---
+title: alias
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `alias` command is used to add and remove aliases.
+
+    ## Usage
+
+    ```sh
+    zulu alias <context> [args]
+    ```
+
+    ### `zulu alias`
+
+    List all of the aliases currently defined in `~/.config/zulu/alias.
+
+    ### `zulu alias add <alias> <command>`
+
+    Adds an alias to the environment, and registers it to be loaded in the next shell session.
+
+    ```sh
+    zulu alias add l 'ls -la'
+    ``` 
+
+    ### `zulu alias rm <alias>`
+
+    Remove an alias.
+
+    ```sh
+    zulu alias rm l
+    ```
+
+    ### `zulu alias load`
+
+    Loads all aliases in `~/.config/zulu/alias` into the environment.

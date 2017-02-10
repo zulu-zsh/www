@@ -1,0 +1,37 @@
+---
+title: list
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `list` command provides lists of packages based on options provided.
+
+    ## Usage
+
+    ```sh
+    zulu list [options]
+    ```
+
+    ## Options
+
+    ### `-a`, `--all`
+
+    Lists all packages in [the index](https://github.com/zulu-zsh/index). If `-s` or `--simple` are not provided, packages which are currently installed are marked with a check.
+
+    ### `-d`, `--describe`
+
+    Includes package descriptions in the output.
+
+    ### `-i`, `--installed`
+
+    Only show installed packages in the output. This is the default.
+
+    ### `-n`, `--no-installed`
+
+    Only show packages which are not installed in the output.
+
+    ### `-s`, `--simple`
+
+    Hide the 'package installed' indicator.

@@ -1,0 +1,37 @@
+---
+title: bundle
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `bundle` command is used to manage the list of installed packages, allowing it to be synced between multiple computers.
+
+    ## Usage
+
+    ```sh
+    zulu bundle [options]
+    ```
+
+    ### `zulu bundle [options]`
+
+    Install all packages currently defined in the packagefile.
+
+    ## Options
+
+    ### `-f`, `--file path/to/file`
+
+    Specify the path to a packagefile. If not specified `~/.config/zulu/packages` is used.
+
+    ### `-c`, `--cleanup`
+
+    Uninstall any packages which are currently installed, but not listed in the package file.
+
+    ### `-d`, `--dump`
+
+    Dump the list of currently installed packages to a packagefile.
+
+    ### `-x`, `--force`
+
+    If `-d` or `--dump` are defined, specifying `-x` or `--force` will force the packagefile to be written if it already exists.

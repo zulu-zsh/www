@@ -1,0 +1,31 @@
+---
+title: cdpath
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `cdpath` command gives you complete control over your `$cdpath` array.
+
+    ## Usage
+
+    ```sh
+    zulu cdpath <context> <dir>
+    ```
+
+    ### `zulu cdpath`
+
+    Prints the list of cdpath directories currently defined in `~/.config/zulu/cdpath`.
+
+    ### `zulu cdpath add <directory>`
+
+    Add a directory to `$cdpath` in the current environment, and register it to be included at the next shell start.
+
+    ### `zulu cdpath rm <directory>`
+
+    Remove a directory from `$cdpath`.
+
+    ### `zulu cdpath reset`
+
+    Clears the current `$cdpath` array, and loads the list of directories from `~/.config/zulu/cdpath`.

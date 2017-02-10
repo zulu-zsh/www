@@ -1,0 +1,21 @@
+---
+title: init
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `init` command loads Zulu into the environment. Should be called in `~/.zshrc` to launch Zulu on shell startup.
+
+    ## Usage
+
+    ```
+    zulu init [options]
+    ```
+
+    ## Options
+
+    ### `-c`, `--check-for-update`
+
+    Specifying the `--check-for-update` option will check for updates to Zulu, the index and any installed packages, and prompt the user to run the `self-update`, `update` or `upgrade` commands as appropriate.

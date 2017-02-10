@@ -1,0 +1,29 @@
+---
+title: upgrade
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `upgrade` command checks for and installs updates to installed packages.
+
+    ## Usage
+
+    ```sh
+    zulu upgrade [<packages...>] [options]
+    ```
+
+    ### `zulu upgrade`
+
+    Install updates for all installed packages.
+
+    ### `zulu upgrade <packages...>`
+
+    Install updates only for the specified packages.
+
+    ## Options
+
+    ### `-c`, `--check`
+
+    Only check for updates, rather than installing them automatically.

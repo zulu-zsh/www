@@ -1,0 +1,31 @@
+---
+title: fpath
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `fpath` command gives you complete control over your `$fpath` array.
+
+    ## Usage
+
+    ```sh
+    zulu fpath <context> <dir>
+    ```
+
+    ### `zulu fpath`
+
+    Prints the list of fpath directories currently defined in `~/.config/zulu/fpath`.
+
+    ### `zulu fpath add <directory>`
+
+    Add a directory to `$fpath` in the current environment, and register it to be included at the next shell start.
+
+    ### `zulu fpath rm <directory>`
+
+    Remove a directory from `$fpath`.
+
+    ### `zulu fpath reset`
+
+    Clears the current `$fpath` array, and loads the list of directories from `~/.config/zulu/fpath`.

@@ -1,0 +1,104 @@
+---
+title: Manual Installation
+seq: 2
+---
+
+extends /docs
+
+block docs-content
+  :marked
+    Sure you don't want to use that install script? Ok then, here we go.
+
+    1. First, set a couple of environment variables which specify the directories Zulu should use. Make sure to add them to your .zshrc if you change them from the default values below.
+
+      ```sh
+      export ZULU_DIR="~/.zulu"
+      export ZULU_CONFIG_DIR="~/.config/zulu"
+      ```
+
+    2. Create the directories needed for packages.
+
+      ```sh
+      mkdir -p ${ZULU_DIR}/{bin,share,init,packages}
+      touch ${ZULU_DIR}/{bin,share,init,packages}/.gitkeep
+      ```
+
+    3. Create the config directories.
+
+      ```sh
+      mkdir -p "${ZULU_CONFIG_DIR}/functions"
+      ```
+
+    4. Clone the core and index repositories.
+
+      ```sh
+      git clone https://github.com/zulu-zsh/zulu ${ZULU_DIR}/core
+      git clone https://github.com/zulu-zsh/index ${ZULU_DIR}/index
+      ```
+
+    5. Create the pathfile, and store the contents of `$path` within it. We'll add Zulu's `bin` directory first, so that packages with executables can work.
+
+      ```sh
+      pathfile="${ZULU_CONFIG_DIR}/path"
+      echo "${ZULU_DIR}/bin" > $pathfile
+      for p in "${path[@]}"; do
+        echo "$p" >> $pathfile
+      done
+      ```
+
+    6. Create the fpathfile, and store the contents of `$fpath` within it. We'll add Zulu's `share` directory here, so that themes and autoloadable functions within packages can be loaded.
+
+      ```sh
+      pathfile="${ZULU_CONFIG_DIR}/fpath"
+      echo "${ZULU_DIR}/share" > $pathfile
+      for p in "${fpath[@]}"; do
+        echo "$p" >> $pathfile
+      done
+      ```
+
+    7. Create the cdpathfile, and store the contents of `$cdpath` within it.
+
+      ```sh
+      pathfile="${ZULU_CONFIG_DIR}/cdpath"
+      echo "" > $pathfile
+      for p in "${cdpath[@]}"; do
+        echo "$p" >> $pathfile
+      done
+      ```
+
+    8. Create the aliasfile, and store all existing aliases within it.
+
+      ```sh
+      local aliasfile="${ZULU_CONFIG_DIR}/alias"
+      echo "" > $aliasfile
+      IFS=$'\n'; for a in `alias`; do
+        echo "alias $a\n" >> $aliasfile
+      done
+      ```
+
+    9. Install the completion file for Zulu itself.
+
+      ```sh
+      ln -s ${ZULU_DIR}/core/zulu.zsh-completion ${ZULU_DIR}/share/_zulu
+      ```
+
+    10. Add Zulu's initialisation script to your `.zshrc`.
+
+      ```sh
+      echo "# Initialise zulu plugin manager" >> ${ZDOTDIR:-$HOME}/.zshrc
+      echo 'source "${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu"' >> ${ZDOTDIR:-$HOME}/.zshrc
+      echo "zulu init" >> ${ZULU_DIR:-$HOME}/.zshrc
+      ```
+
+    11. Nearly done! Zulu is installed. Load it now.
+
+      ```sh
+      source ${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu
+      zulu init
+      ```
+
+    12. Zulu uses a few packages from the index internally, if they are installed. For best results, install them now.
+
+      ```sh
+      zulu install color revolver
+      ```

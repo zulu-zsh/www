@@ -1,0 +1,39 @@
+---
+title: var
+---
+  
+extends /docs
+
+block docs-content
+  :marked
+    The `var` command is used to add and remove environment variables.
+
+    ## Usage
+
+    ```sh
+    zulu var <context> [args]
+    ```
+
+    ### `zulu var`
+
+    List all of the environment variables currently defined in `~/.config/zulu/env`.
+
+    ### `zulu var add <variable> <value>`
+
+    Adds an environment variable to the environment, and registers it to be loaded in the next shell session.
+
+    ```sh
+    zulu var add ZULU_DIR '~/.zulu'
+    ``` 
+
+    ### `zulu var rm <variable>`
+
+    Remove an environment variable.
+
+    ```sh
+    zulu var rm ZULU_DIR
+    ```
+
+    ### `zulu var load`
+
+    Loads all environment variables in `~/.config/zulu/env` into the environment.
