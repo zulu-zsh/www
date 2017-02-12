@@ -74,7 +74,7 @@ class Search
         resolve JSON.parse(json)
         return
 
-      fetch 'http://zulu.sh/index/index.json'
+      fetch 'https://zulu.sh/index/index.json'
         .then (response) ->
           response.json()
 
