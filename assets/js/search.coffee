@@ -71,7 +71,12 @@ class Search
 
       if (updatedAt + 300) > timestamp
         json = localStorage.getItem('package_index')
-        resolve JSON.parse(json)
+
+        try
+          resolve JSON.parse(json)
+        catch err
+          reject err
+
         return
 
       fetch 'https://zulu.sh/index/index.json'
@@ -169,8 +174,24 @@ class Search
         # Add the remaining packages to the list of search results
         @appendSearchResult item, results for item in packages
 
-      .catch (err) ->
-        document.body.innerHTML = err
+      .catch (err) =>
+        # Empty the results container
+        results = document.querySelector '#results ul'
+        results.innerHTML = ''
+
+        # Create an error item and display it in the results pane
+        li = document.createElement 'li'
+
+        span = document.createElement 'span'
+        span.innerHTML = 'Error'
+
+        p = document.createElement 'p'
+        p.innerHTML = 'An error occurred whilst fetching the index'
+
+        li.appendChild span
+        li.appendChild p
+
+        results.appendChild li
 
   ###*
    * Handle a search input focus event
