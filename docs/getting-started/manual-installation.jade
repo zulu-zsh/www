@@ -86,13 +86,20 @@ block docs-content
       done
       ```
 
-    10. Install the completion file for Zulu itself.
+    10. Build Zulu from its source
+
+      ```sh
+      cd ${ZULU_DIR}
+      ./build.zsh
+      ```
+
+    11. Install the completion file for Zulu itself.
 
       ```sh
       ln -s ${ZULU_DIR}/core/zulu.zsh-completion ${ZULU_DIR}/share/_zulu
       ```
 
-    11. Add Zulu's initialisation script to your `.zshrc`.
+    12. Add Zulu's initialisation script to your `.zshrc`.
 
       ```sh
       echo "# Initialise zulu plugin manager" >> ${ZDOTDIR:-$HOME}/.zshrc
@@ -100,14 +107,14 @@ block docs-content
       echo "zulu init" >> ${ZULU_DIR:-$HOME}/.zshrc
       ```
 
-    12. Nearly done! Zulu is installed. Load it now.
+    13. Nearly done! Zulu is installed. Load it now.
 
       ```sh
       source ${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu
       zulu init
       ```
 
-    13. Zulu uses a few packages from the index internally, if they are installed. For best results, install them now.
+    14. Zulu uses a few packages from the index internally, if they are installed. For best results, install them now.
 
       ```sh
       zulu install color revolver
