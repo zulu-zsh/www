@@ -1,0 +1,31 @@
+---
+title: manpath
+---
+
+extends /docs
+
+block docs-content
+  :marked
+    The `manpath` command gives you complete control over your `$manpath` array.
+
+    ## Usage
+
+    ```sh
+    zulu manpath <context> <dir>
+    ```
+
+    ### `zulu manpath`
+
+    Prints the list of manpath directories currently defined in`~/.config/zulu/manpath`.
+
+    ### `zulu manpath add <directory>`
+
+    Add a directory to `$manpath` in the current environment, and register it to be included at the next shell start.
+
+    ### `zulu manpath rm <directory>`
+
+    Remove a directory from `$manpath`.
+
+    ### `zulu manpath reset`
+
+    Clears the current `$manpath` array, and loads the list of directories from `~/.config/zulu/manpath`.
