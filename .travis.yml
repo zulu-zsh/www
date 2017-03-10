@@ -1,18 +1,32 @@
 language: node_js
-
 node_js:
 - node
 
-install:
-- npm install
-- npm install -g roots
+addons:
+  apt:
+    packages:
+    - graphicsmagick
+
+cache:
+  bundler: true
+  yarn: true
+  directories:
+  - node_modules
+  - vendor/bundle
+  - $HOME/.rvm/user/installs
+
+before_install:
+- if [[ ! -d $HOME/.rvm/user/installs ]]; then rvm install ruby-2.3.1; fi
+- rvm use 2.3.1
+- bundle install --deployment
 
 before_script:
-- git config --global user.email "hi@molovo.co"
-- git config --global user.name "James Dinsdale"
+- export PATH="$(yarn bin):$PATH"
 
 script:
-- roots compile
+- yarn run lint
+- yarn run build
+- bundle exec htmlproofer ./public --check-favicon --check-html --check-external-hash --check-html --check-img-http --check-opengraph
 
 deploy:
   provider: pages

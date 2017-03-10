@@ -4,10 +4,13 @@
   "dependencies": {
     "autoprefixer": "^6.2.3",
     "coffee-script": "^1.0.0",
+    "coffeelint": "^1.16.0",
     "css-pipeline": "0.3.x",
     "date_format": "^0.1.1",
     "dynamic-content": "^0.3.0",
+    "es6-promise": "^4.0.5",
     "highlight.js": "^9.7.0",
+    "isomorphic-fetch": "^2.2.1",
     "jade": "^1.0.0",
     "js-pipeline": "0.2.x",
     "jstransformer-marked": "^1.0.0",
@@ -16,11 +19,15 @@
     "node-sass": "^3.4.2",
     "postcss": "^5.0.13",
     "promise": "^7.1.1",
+    "roots": "^5.1.0",
     "roots-browserify": "^0.5.0",
     "roots-image-pipeline": "^0.3.0",
+    "sass-lint": "^1.10.2",
     "statica": "0.0.1",
-    "isomorphic-fetch": "^2.2.1",
-    "es6-promise": "^4.0.5",
     "zenscroll": "^3.3.0"
+  },
+  "scripts": {
+    "lint": "coffeelint assets/js/ && sass-lint --verbose --no-exit",
+    "build": "roots compile --env production"
   }
 }

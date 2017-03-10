@@ -53,9 +53,9 @@ module.exports =
   extensions: [
     image_pipeline(
       files: 'assets/img/**'
-      compress: false
-      resize: false
-      output_webp: false
+      compress: true
+      resize: true
+      output_webp: true
     )
     css_pipeline(files: 'assets/css/main.sass', postcss: true)
     dynamic_content(
