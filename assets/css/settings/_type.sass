@@ -1,5 +1,5 @@
 html
-  font: 400 100%/#{$baseline} $font--primary
+  font: 400 100% / #{$baseline} $font--primary
 
 body
   line-height: $baseline
@@ -91,10 +91,10 @@ small
   line-height: .5em
 
 hr
+  border: solid $shade
+  border-width: 0 0 1px
   height: 0
   margin: calc(#{$baseline * 2} - 1px) auto #{$baseline * 2}
-  border: solid $shade
-    width: 0 0 1px
 
 blockquote, figcaption
   display: block
@@ -103,26 +103,27 @@ blockquote, figcaption
     display: block
     font:
       family: $font--secondary
-      weight: 600
       style: normal
+      weight: 600
 
-  p:last-of-type
-    margin: 0
+  p
+    :last-of-type
+      margin: 0
 
 blockquote
   &:not(.pull)
-    margin: 0 0 $baseline
     font:
-      weight: 300
       style: italic
+      weight: 300
+    margin: 0 0 $baseline
 
   &.pull
-    font-size: 2.25em
-    margin: 0 0 .6666666666666667em
-    line-height: 1.35em
     font:
-      weight: 200
       family: $font--secondary
+      size: 2.25em
+      weight: 200
+    line-height: 1.35em
+    margin: 0 0 .6666666666666667em
 
     cite
       font-size: .4444444444444444em
@@ -134,21 +135,21 @@ figure
     max-width: 100%
 
   figcaption
-    font-style: italic
     font-size: .75em
+    font-style: italic
 
   &.full-width
     width: 100%
 
     img
-      margin: 0 #{$baseline * -2} 0
+      margin: 0 #{$baseline * -2}
       max-width: calc(100% + #{$baseline * 4})
       width: calc(100% + #{$baseline * 4})     // Need both because of a webkit bug!
 
 
 code
-  font-family: $font--monospace
   background: $shade
+  font-family: $font--monospace
 
   // Line height should be inherited, but for inline code blocks where it isn't, this maintains the baseline
   line-height: 0

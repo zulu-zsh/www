@@ -21,22 +21,22 @@ time, mark, audio, video, input, textarea, select, button
   padding: 0
   vertical-align: baseline
 
-/* HTML5 display-role reset for older browsers */
+// HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure,
 footer, header, hgroup, main, menu, nav, section
-	display: block
+  display: block
 body
-	line-height: $baseline
+  line-height: $baseline
 ol, ul
-	list-style: none
+  list-style: none
 blockquote, q
-	quotes: none
-blockquote:before, blockquote:after,
-q:before, q:after
-	content: ""
-	content: none
+  quotes: none
+
+  &::before, &::after
+    content: ''
+    content: none
 img
   max-width: 100%
 table
-	border-collapse: collapse
-	border-spacing: 0
+  border-collapse: collapse
+  border-spacing: 0

@@ -1,7 +1,5 @@
 .intro
-  background: #B24592; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top left, #B24592 , #F15F79); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top left, #B24592 , #F15F79); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top left, $purple , $peach)
   color: $white
   padding: 6em 1.5em
   transition: padding .25s
@@ -22,15 +20,19 @@
 
 .features
   padding: 3em 1.5em
-  
+
   @media (min-width: 32em)
     padding: 3em
 
   @media (min-width: 64em)
     padding: 6em
 
+  iframe
+    max-width: 100%
+
   &--item
     align-items: center
+    border-bottom: 1px solid $shade
     display: flex
     flex-wrap: wrap
     padding: 3em 0
@@ -51,11 +53,6 @@
 
       > *
         flex: 0 0 50%
-
-    border-bottom: 1px solid $shade
-
-  iframe
-    max-width: 100%
 
 .installation
   padding: 0 6em
