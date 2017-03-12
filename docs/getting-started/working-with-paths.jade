@@ -1,0 +1,39 @@
+---
+title: Working with Paths
+seq: 5
+---
+
+extends /docs
+
+block docs-content
+  :marked
+    Zulu provides 4 commands to help you manage the different path arrays available to you in ZSH. They are `zulu path`, `zulu fpath`, `zulu cdpath` and `zulu manpath`. Since they all work the same way, we'll concentrate on the path command here.
+
+    ### Adding a directory to `$path`
+
+    First, let's create a simple executable script, and then add its directory to `$path`, so we can call it like a normal command.
+
+    ```sh
+    mkdir scripts
+    echo "echo 'It works!" > scripts/my_test_script
+    chmod u+z scripts/my_test_script
+    ```
+
+    If you run `my_test_script` now, you should see a `command not found` error in your terminal. To let the shell find it, we need to add the scripts directory to the `$path` array.
+
+    ```sh
+    zulu path add scripts
+    ```
+
+    Now, try running `my_test_script` again. You'll see `It works!` appear in the terminal. Let's remove the test directory we just created, and remove it from `$path` again.
+
+    ```sh
+    zulu path rm scripts
+    rm -rf scripts
+    ```
+
+    The `path` command works with absolute paths as well.
+
+    ```sh
+    zulu path add /usr/local/bin
+    ```
