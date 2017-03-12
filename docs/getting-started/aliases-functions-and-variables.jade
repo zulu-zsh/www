@@ -1,0 +1,92 @@
+---
+title: Aliases, Functions and Variables
+seq: 4
+---
+
+extends /docs
+
+block docs-content
+  :marked
+    Unlike other ZSH frameworks, Zulu tries to make everything as easy as possible by allowing you to add things like aliases, functions and variables to your environment without modifying shell scripts or having to restart your terminal session.
+
+    ### Adding and Removing Aliases
+
+    Let's take a look at aliases first, and create a handy alias to make installing zulu packages easier.
+
+    ```sh
+    zulu alias add zi 'zulu install'
+    ```
+
+    That will create an alias called `zi`, which will run `zulu install` for us, saving us the energy of typing out all those extra letters. It's available as soon as the command finishes. Let's try it out now by installing the `tipz` plugin, which gives us helpful hints to help us learn the aliases we've defined.
+
+    ```sh
+    zi tipz
+    ```
+
+    We can remove an alias once it's been created just as easily. It will be removed from your environment immediately.
+
+    ```sh
+    zulu alias rm zi
+    ```
+
+    ### Adding and Removing Variables
+
+    Now, let's move on to creating an Environment Variable. There's a really useful variable called `$EDITOR`, which defines the application used to open a file when you use the `edit` command. We'll need it later on when we create some functions. Let's set it to `nano` for now.
+
+    ```sh
+    zulu var add EDITOR nano
+    ```
+
+    If you are syncing your Zulu configuration, you might want to create a private variable, so that it is not synced with the rest of your configuration. To do that, just add the `--private` option.
+
+    ```sh
+    zulu var add --private MY_SECRET_KEY abcdefghijklmnopqrstuvwxyz
+    ```
+
+    ### Adding, Editing and Removing Functions
+
+    We can use functions to define our own more complicated commands. Let's create a simple function which we can use to update Zulu, its package index, and all installed packages in one go.
+
+    ```sh
+    zulu func add zupdate
+    ```
+
+    Hopefully, you should see your text editor open in front of you (if you defined `$EDITOR` in the previous step), with the following function definition in it:
+
+    ```sh
+    #!/usr/bin/env zsh
+
+    (( $+functions[zupdate] )) || function zupdate() {
+
+    }
+    ```
+
+    Now, let's add our update commands into the body of the function, and save it. When finished, it should look like this:
+
+    ```sh
+    #!/usr/bin/env zsh
+
+    (( $+functions[zupdate] )) || function zupdate() {
+        zulu self-update
+        zulu update
+        zulu upgrade -y
+    }
+    ```
+
+    That's it. Just save and exit your editor, and try running the function now.
+
+    ```sh
+    zupdate
+    ```
+
+    If you want to add something else to your function, you can use the following command:
+
+    ```sh
+    zulu func edit zupdate
+    ```
+
+    You should see your editor again, with the commands you entered earlier.
+
+    ### Next
+
+    Great, we're making real progress now. Let's take a look at [Working with paths &rarr;](/docs/getting-started/working-with-paths)

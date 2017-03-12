@@ -1,0 +1,49 @@
+---
+title: Packages
+seq: 3
+---
+
+extends /docs
+
+block docs-content
+  :marked
+    At the heart of Zulu is its package manager, allowing you to easily install from a curated list of plugins, applications and themes.
+
+    ### List available packages
+
+    To list available packages, use the `list` command. Running the command below will list all the packages in Zulu's index, with the ones you currently have installed marked.
+
+    ```sh
+    zulu list --all
+    ```
+
+    ### Search for a package
+
+    Let's search for packages containing the term `git`.
+
+    ```sh
+    zulu search git
+    ```
+
+    ### Installing a package
+
+    To install a package from the index, just type `zulu install <package>`. Let's install `agnoster`, a popular prompt theme.
+
+    ```sh
+    zulu install agnoster
+    ```
+
+    You should see the theme on your screen already -- no need to restart your shell -- and it will still be available next time you start ZSH.
+
+    ### Uninstalling a package
+
+    Don't like `agnoster`? Let's switch back to the default theme and uninstall it.
+
+    ```sh
+    zulu theme filthy
+    zulu uninstall agnoster
+    ```
+
+    ### Next
+
+    Got the hang of all that? Let's move on to look at [Aliases, Functions and Variables &rarr;](/docs/getting-started/aliases-functions-and-variables)
