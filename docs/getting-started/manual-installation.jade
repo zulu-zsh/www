@@ -66,7 +66,17 @@ block docs-content
       done
       ```
 
-    8. Create the aliasfile, and store all existing aliases within it.
+    8. Create the manpathfile, and store the contents of `$manpath` within it.
+
+      ```sh
+      pathfile="${ZULU_CONFIG_DIR}/manpath"
+      echo "" > $pathfile
+      for p in "${manpath[@]}"; do
+        echo "$p" >> $pathfile
+      done
+      ```
+
+    9. Create the aliasfile, and store all existing aliases within it.
 
       ```sh
       local aliasfile="${ZULU_CONFIG_DIR}/alias"
@@ -76,13 +86,20 @@ block docs-content
       done
       ```
 
-    9. Install the completion file for Zulu itself.
+    10. Build Zulu from its source
+
+      ```sh
+      cd ${ZULU_DIR}
+      ./build.zsh
+      ```
+
+    11. Install the completion file for Zulu itself.
 
       ```sh
       ln -s ${ZULU_DIR}/core/zulu.zsh-completion ${ZULU_DIR}/share/_zulu
       ```
 
-    10. Add Zulu's initialisation script to your `.zshrc`.
+    12. Add Zulu's initialisation script to your `.zshrc`.
 
       ```sh
       echo "# Initialise zulu plugin manager" >> ${ZDOTDIR:-$HOME}/.zshrc
@@ -90,14 +107,14 @@ block docs-content
       echo "zulu init" >> ${ZULU_DIR:-$HOME}/.zshrc
       ```
 
-    11. Nearly done! Zulu is installed. Load it now.
+    13. Nearly done! Zulu is installed. Load it now.
 
       ```sh
       source ${ZULU_DIR:-"${ZDOTDIR:-$HOME}/.zulu"}/core/zulu
       zulu init
       ```
 
-    12. Zulu uses a few packages from the index internally, if they are installed. For best results, install them now.
+    14. Zulu uses a few packages from the index internally, if they are installed. For best results, install them now.
 
       ```sh
       zulu install color revolver

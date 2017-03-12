@@ -1,7 +1,7 @@
 ---
 title: init
 ---
-  
+
 extends /docs
 
 block docs-content
@@ -19,3 +19,11 @@ block docs-content
     ### `-c`, `--check-for-update`
 
     Specifying the `--check-for-update` option will check for updates to Zulu, the index and any installed packages, and prompt the user to run the `self-update`, `update` or `upgrade` commands as appropriate.
+
+    ### `--no-compile`
+
+    Skips background compilation of Zulu, packages and user scripts when loading Zulu.
+
+    ### `--dev`
+
+    Useful for Zulu developers. When enabled, Zulu will load the source for a command when it is executed, preventing the need to rebuild Zulu and reload the environment between changes.

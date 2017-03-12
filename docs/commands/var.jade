@@ -1,7 +1,7 @@
 ---
 title: var
 ---
-  
+
 extends /docs
 
 block docs-content
@@ -24,7 +24,7 @@ block docs-content
 
     ```sh
     zulu var add ZULU_DIR '~/.zulu'
-    ``` 
+    ```
 
     ### `zulu var rm <variable>`
 
@@ -37,3 +37,13 @@ block docs-content
     ### `zulu var load`
 
     Loads all environment variables in `~/.config/zulu/env` into the environment.
+
+    ## Options
+
+    ### `-p`, `--private`
+
+    Adds a variable, storing it in a separate 'private' file, allowing it to be excluded from version control easily.
+
+    ```sh
+    zulu var add --private MY_SECRET_KEY j48fw984fw93hf938hf938haf938ahf
+    ```

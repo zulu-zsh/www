@@ -1,6 +1,7 @@
 .docs
   display: flex
   padding: 3em 1.5em
+  width: 100%
 
   .scrolled &
     padding-top: 9em
@@ -26,26 +27,19 @@
     &-nav
       font-size: .75em
 
-      h4
-        margin: 0
-
       ul
         list-style: none
 
       .active
+        color: $peach
+        font-weight: 700
         position: relative
-
-        &::before
-          color: $peach
-          content: '•'
-          font-size: 1.5em
-          position: absolute
-          right: 100%
 
   &--content
     display: block
     flex: 1 1 100%
-    width: 100%
+    max-width: 42em
+    padding-right: 6em
 
     article
       font-size: .75em
