@@ -70,13 +70,13 @@ module.exports = class Docs
 
       # If we are within the cache time, get and parse the
       # cached documentation list
-      # if (updatedAt + 300) > timestamp
-      #   json = localStorage.getItem 'documentation'
-      #   resolve JSON.parse(json)
-      #   return
+      if (updatedAt + 300) > timestamp
+        json = localStorage.getItem 'documentation'
+        resolve JSON.parse(json)
+        return
 
       # Fetch the list from the stored JSON file
-      fetch 'http://localhost:1111/docs.json'
+      fetch 'https://zulu.sh/docs.json'
         # Parse the JSON response
         .then (response) ->
           response.json()
