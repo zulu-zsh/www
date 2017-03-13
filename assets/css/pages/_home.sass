@@ -55,8 +55,20 @@
         flex: 0 0 50%
 
 .installation, .usage
-  margin: 0 6em 6em
+  margin: 0 1.5em 3em
+
+  @media (min-width: 32em)
+    margin: 0 3em 3em
+
+  @media (min-width: 64em)
+    margin: 0 6em 6em
 
 .usage
   border-top: 1px solid $shade
-  padding-top: 6em
+  padding-top: 3em
+
+  @media (min-width: 32em)
+    padding-top: 3em
+
+  @media (min-width: 64em)
+    padding-top: 6em

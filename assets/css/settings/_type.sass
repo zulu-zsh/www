@@ -5,11 +5,8 @@ body
   line-height: $baseline
 
   @if $type-scaling == true
-    @media (min-width: 42em)
-      font-size: 1.125em
-
-    @media (min-width: 60em)
-      font-size: 1.3125em
+    @media (max-width: 42em)
+      font-size: .875em
 
 h1, h2, h3, h4, h5, h6
   font:
