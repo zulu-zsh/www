@@ -2,6 +2,7 @@ html
   font: 400 100% / #{$baseline} $font--primary
 
 body
+  color: $dark
   line-height: $baseline
 
   @if $type-scaling == true
@@ -12,7 +13,6 @@ h1, h2, h3, h4, h5, h6
   font:
     family: $font--secondary
     weight: 700
-  // letter-spacing: -.025em
 
 h1
   font-size: 3em
@@ -145,14 +145,15 @@ figure
 
 
 code
-  background: $shade
-  font-family: $font--monospace
-
-  // Line height should be inherited, but for inline code blocks where it isn't, this maintains the baseline
-  line-height: 0
+  background: rgba($dark, .1)
+  border-radius: .15em
+  font:
+    family: $font--monospace
+    size: .875em
+  padding: .125em .25em
 
 pre
-  background: $shade
+  background: $dark
   margin: 0 0 $baseline
   max-width: 100%
   overflow-x: auto
@@ -160,4 +161,6 @@ pre
 
   code
     background: transparent
-    // font-size: .75em
+    color: $white
+    font-size: 1em
+    padding: 0

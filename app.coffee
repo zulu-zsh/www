@@ -10,7 +10,6 @@ jade            = require 'jade'
 fs              = require 'fs'
 marked          = require 'marked'
 moment          = require 'moment'
-highlight       = require 'highlight.js'
 
 marked.setOptions
   gfm: true
@@ -20,8 +19,6 @@ marked.setOptions
   sanitize: true
   smartLists: true
   smartypants: true
-  highlight: (code) ->
-    highlight.highlightAuto(code).value
 
 module.exports =
   ignores: [
