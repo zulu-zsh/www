@@ -1,4 +1,5 @@
 Promise   = require 'promise'
+Fuse      = require 'fuse.js'
 zenscroll = require 'zenscroll'
 zenscroll.setup null, -1
 
@@ -18,44 +19,6 @@ class Search
   ###
   constructor: () ->
     @registerSearchInputListeners()
-
-  ###*
-   * Compare search input against a package and
-   * return a match score
-   *
-   * @param  {object} item  The package from the index
-   * @param  {string} value The search term
-   *
-   * @return {int}          The match score
-  ###
-  getMatchScore: (item, value) ->
-    item.score = 0
-
-    item.score += switch
-      when item.name is value                            then 10
-      when item.name.substring(0, value.length) is value then 7
-      when @fuzzyMatch item.name, value                  then 5
-      when @fuzzyMatch item.type, value                  then 3
-      when @fuzzyMatch item.description, value           then 1
-
-    item.score
-
-  ###*
-   * Fuzzy match a search term against a string
-   *
-   * @param  {string} str     The string to match against
-   * @param  {string} pattern The search term
-   *
-   * @return {boolean}        Whether or not a match is found
-  ###
-  fuzzyMatch: (str, pattern) ->
-    if not pattern
-      return false
-
-    pattern = pattern.split ''
-      .reduce (a, b) -> a + '.*' + b
-
-    (new RegExp(pattern)).test(str)
 
   ###*
    * Retrieve the package index JSON, and cache it
@@ -162,19 +125,30 @@ class Search
         if not input.value or packages.length is 0
           return
 
-        # Store a match score against each of the packages in the index
-        item.score = @getMatchScore(item, input.value) for item in packages
+        # Create the fuse instance
+        options =
+          threshold: 0.3
+          keys: [{
+            name: 'name'
+            weight: 1
+          }, {
+            name: 'type'
+            weight: 0.7
+          }, {
+            name: 'description'
+            weight: 0.3
+          }]
+        fuse = new Fuse(packages, options)
 
-        # Remove packages which are not a match
-        packages = packages.filter (item) -> item.score > 0
-
-        # Sort packages by their match score
-        packages.sort (a, b) -> b.score - a.score
+        # Filter the results
+        filtered = fuse.search(input.value)
 
         # Add the remaining packages to the list of search results
-        @appendSearchResult item, results for item in packages
+        @appendSearchResult item, results for item in filtered
 
-      .catch (err) =>
+      .catch (err) ->
+        console.error err
+
         # Empty the results container
         results = document.querySelector '#results ul'
         results.innerHTML = ''

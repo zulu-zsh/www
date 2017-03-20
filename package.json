@@ -9,6 +9,7 @@
     "date_format": "^0.1.1",
     "dynamic-content": "^0.3.0",
     "es6-promise": "^4.0.5",
+    "fuse.js": "^2.6.2",
     "isomorphic-fetch": "^2.2.1",
     "jade": "^1.0.0",
     "js-pipeline": "0.2.x",
