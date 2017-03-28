@@ -29,7 +29,7 @@ class Search
   ###
   getPackageIndex: () ->
     new Promise (resolve, reject) ->
-      updatedAt = localStorage.getItem 'package_index_updated_at'
+      updatedAt = parseInt localStorage.getItem('package_index_updated_at')
       timestamp = new Date().getTime()
 
       if (updatedAt + 300) > timestamp

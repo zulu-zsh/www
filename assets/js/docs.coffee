@@ -65,7 +65,7 @@ module.exports = class Docs
   getDocs: () ->
     new Promise (resolve, reject) ->
       # Get the updated at timestamp
-      updatedAt = localStorage.getItem 'documentation_updated_at'
+      updatedAt = parseInt localStorage.getItem('documentation_updated_at')
       timestamp = new Date().getTime()
 
       # If we are within the cache time, get and parse the
