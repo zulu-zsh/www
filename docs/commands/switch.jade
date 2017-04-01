@@ -1,0 +1,29 @@
+---
+title: switch
+---
+
+extends /docs
+
+block docs-content
+  :marked
+    The `switch` command checks out the specified branch, tag or commit of an installed package.
+
+    ## Usage
+
+    ```sh
+    zulu switch <ref> <package>
+    ```
+
+    ### `zulu switch --branch <branch> <package>`
+
+    Checkout the specified branch of packages repository.
+
+    ## Options
+
+    ### `-b <branch>, --branch <branch>`
+
+    Specify the branch to check out.
+
+    ### `-t <tag>, --tag <tag>`
+
+    Specify a tag or commit to check out.
