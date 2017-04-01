@@ -94,5 +94,6 @@ module.exports =
     sort: (posts) -> posts.sort (a, b) -> a.seq - b.seq
 
   jade:
+    baseDomain: 'http://localhost:1111'
     pretty: true
     basedir: "#{__dirname}/views"

@@ -42,7 +42,7 @@ class Search
 
         return
 
-      fetch 'https://zulu.sh/index/index.json'
+      fetch "#{window.baseDomain}/index/index.json"
         .then (response) ->
           response.json()
 

@@ -76,7 +76,7 @@ module.exports = class Docs
         return
 
       # Fetch the list from the stored JSON file
-      fetch 'https://zulu.sh/docs.json'
+      fetch "#{window.baseDomain}/docs.json"
         # Parse the JSON response
         .then (response) ->
           response.json()
