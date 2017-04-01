@@ -1,0 +1,2 @@
+# Redirect for install script
+/install	https://raw.githubusercontent.com/zulu-zsh/install/master/install
