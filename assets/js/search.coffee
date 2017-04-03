@@ -42,7 +42,7 @@ class Search
 
         return
 
-      fetch "#{window.baseDomain}/index/index.json"
+      fetch "#{window.baseDomain}/index"
         .then (response) ->
           response.json()
 

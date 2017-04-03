@@ -1,2 +1,6 @@
 # Redirect for install script
 /install	https://raw.githubusercontent.com/zulu-zsh/install/master/install
+
+# Redirect for package index JSON
+/index	  https://zulu-zsh.github.io/index/index.json
+
