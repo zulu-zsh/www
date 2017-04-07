@@ -1,0 +1,27 @@
+---
+title: sync
+---
+
+extends /docs
+
+block docs-content
+  :marked
+    The `sync` command is used to keep your Zulu configuration (found in `~/.config/zulu`) up-to-date with a remote git repository. The first time `zulu sync` is run, it will walk the user through setting up the syncing process.
+
+    ## Usage
+
+    ```sh
+    zulu sync [context]
+    ```
+
+    ### `zulu sync`
+
+    Pulls any changes from the remote repository, then commits and pushes local changes. Equivalent to running `zulu sync pull && zulu sync push`.
+
+    ### `zulu sync pull`
+
+    Pull local changes from the remote repository.
+
+    ### `zulu sync push`
+
+    Commit local changes, and push them to the remote repository.
