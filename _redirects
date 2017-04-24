@@ -4,3 +4,5 @@
 # Redirect for package index JSON
 /index	  https://zulu-zsh.github.io/index/index.json
 
+# Ensure correct domain is used
+https://zulu.netlify.com/* https://zulu.sh/:splat 301!
