@@ -1,5 +1,9 @@
 header.nav
   label.nav--search
+    a.nav--logo(href='/')
+      img.nav--logo-image(src='/img/zulu.svg')
+      img.nav--logo-image.nav--logo-image_white(src='/img/zulu-white.svg')
+
     input#search(type='text' name='search' placeholder='Search for a package...' autocomplete='off')
 
     a#nav--search-close.nav--search-close
@@ -7,7 +11,6 @@ header.nav
       span.icon  &times;
 
   nav.nav--main
-    a(href='/') Home
     a(href='/#features') Features
     a(href='/docs') Docs
     a(href='https://github.com/zulu-zsh/zulu') Github

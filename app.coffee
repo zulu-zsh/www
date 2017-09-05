@@ -10,6 +10,7 @@ jade            = require 'jade'
 fs              = require 'fs'
 marked          = require 'marked'
 moment          = require 'moment'
+chromatic       = require 'chromatic-sass'
 
 marked.setOptions
   gfm: true
@@ -49,10 +50,10 @@ module.exports =
 
   extensions: [
     image_pipeline(
-      files: 'assets/img/**'
       compress: false
-      resize: false
+      files: 'assets/img/**'
       output_webp: false
+      resize: false
     )
     css_pipeline(files: 'assets/css/main.sass', postcss: true)
     dynamic_content(
@@ -61,16 +62,17 @@ module.exports =
     statica()
     browserify(
       files: 'assets/js/main.coffee'
-      out: 'js/main.js'
       minify: true
+      out: 'js/main.js'
       sourceMap: true
     )
   ]
 
   scss:
-    sourcemap: true
-    minify: true
+    functions: chromatic
     indentedSyntax: true
+    minify: true
+    sourcemap: true
 
   postcss:
     use: [autoprefixer(browsers: ['last 3 versions'])]
