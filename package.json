@@ -3,6 +3,7 @@
   "description": "The website for the Zulu ZSH environment manager",
   "dependencies": {
     "autoprefixer": "^6.2.3",
+    "chromatic-sass": "^0.1.8",
     "coffee-script": "^1.0.0",
     "coffeelint": "^1.16.0",
     "css-pipeline": "0.3.x",
@@ -29,5 +30,6 @@
   "scripts": {
     "lint": "coffeelint assets/js/ && sass-lint --verbose --no-exit",
     "build": "roots compile --env production"
-  }
+  },
+  "devDependencies": {}
 }
