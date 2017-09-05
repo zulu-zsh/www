@@ -10,6 +10,7 @@ jade            = require 'jade'
 fs              = require 'fs'
 marked          = require 'marked'
 moment          = require 'moment'
+chromatic       = require 'chromatic-sass'
 
 marked.setOptions
   gfm: true
@@ -68,6 +69,7 @@ module.exports =
   ]
 
   scss:
+    functions: chromatic
     sourcemap: true
     minify: true
     indentedSyntax: true
