@@ -5,4 +5,7 @@
 /index	  https://zulu-zsh.github.io/index/index.json
 
 # Ensure correct domain is used
-https://zulu.netlify.com/* https://zulu.sh/:splat 301!
+https://zulu.netlify.com/* https://zulu.molovo.co/:splat 301!
+
+# Redirect old domain
+https://zulu.sh/* https://zulu.molovo.co/:splat 301!

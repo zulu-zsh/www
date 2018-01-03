@@ -94,6 +94,6 @@ module.exports =
     sort: (posts) -> posts.sort (a, b) -> a.seq - b.seq
 
   jade:
-    baseDomain: 'https://zulu.sh'
+    baseDomain: 'https://zulu.molovo.co'
     pretty: true
     basedir: "#{__dirname}/views"
