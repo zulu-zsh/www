@@ -18,34 +18,53 @@
     position: fixed
     top: 0
 
+  &--logo
+    line-height: 1em
+    flex: 0 0 auto
+    margin-left: #{(6 / 4) * 1em}
+
+    @media (min-width: 32em)
+      margin-left: #{(6 / 2) * 1em}
+
+    @media (min-width: 64em)
+      margin-left: 6em
+
+    &-image
+      height: .875em
+      vertical-align: middle
+
+      .search-term-entered &
+        display: none
+
+      &_white
+        display: none
+
+        .search-term-entered &
+          display: inline
+
   &--search
-    flex: 0 1 100%
+    align-items: center
+    display: flex
+    flex: 1 1 100%
     position: relative
 
     @media (max-width: 64em)
-      flex: 0 0 100%
       order: 1
 
     input
       background: transparent
       border: 0
+      font-family: $font--monospace
       font-size: 1.125em
-      padding: .75em #{(5.33333333 / 4) * 1em}
+      padding: .825em #{(5.33333333 / 4) * 1em} .75em .75em
       transition: color .25s 0, padding .25s 0, font-size .25s 0
       width: 100%
 
       @media (min-width: 32em)
-        padding: .75em #{(5.33333333 / 2) * 1em}
+        padding: .825em #{(5.33333333 / 2) * 1em} .75em .75em
 
       @media (min-width: 64em)
-        padding: .75em 0 .75em 5.33333333em
-
-    .search-focused &
-      flex: 0 0 100%
-
-      @media (min-width: 64em)
-        input
-          padding: .75em 5.33333333em
+        padding: .825em 5.33333333em .75em .75em
 
     &-close
       cursor: pointer
@@ -67,6 +86,7 @@
         text-decoration: none
 
       .icon
+        color: $red
         font-size: 2.25em
         vertical-align: middle
 
@@ -85,7 +105,7 @@
         transition: opacity .25s 0
 
   &--main
-    padding: .75em 6em .75em 0
+    padding: .875em 6em .875em 0
     transition: opacity .25s
 
     @media (max-width: 64em)
@@ -97,7 +117,8 @@
       padding: .75em 1.5em
 
     a
-      color: $peach
+      font-weight: 500
+      text-decoration: none
 
       &:not(:last-child)
         margin-right: 1.5em
@@ -120,14 +141,8 @@
       input
         color: $white
         font-size: 1.3125em
-        padding: 1.5em #{(4.5714285714 / 4) * 1em}
+        padding: 1.5em .75em
         transition: color .25s .25s, padding .25s .25s, font-size .25s .25s
-
-        @media (min-width: 32em)
-          padding: 1.5em #{(4.5714285714 / 2) * 1em}
-
-          @media (min-width: 32em)
-            padding: 1.5em 4.5714285714em
 
     .nav--main
       display: none
