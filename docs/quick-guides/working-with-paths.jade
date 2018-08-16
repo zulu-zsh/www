@@ -15,8 +15,8 @@ block docs-content
 
     ```sh
     mkdir scripts
-    echo "echo 'It works!" > scripts/my_test_script
-    chmod u+z scripts/my_test_script
+    echo "echo 'It works!'" > scripts/my_test_script
+    chmod u+x scripts/my_test_script
     ```
 
     If you run `my_test_script` now, you should see a `command not found` error in your terminal. To let the shell find it, we need to add the scripts directory to the `$path` array.
